@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\MapsController;
 
 Route::get('/', function () {
     return redirect('/users/login');
@@ -12,3 +13,4 @@ Route::get('/users/logout', [UsersController::class, 'logout'])->name('logout');
 Route::post('/users/logout', [UsersController::class, 'logout'])->name('logout');
 Route::get('/users/register', [UsersController::class, 'register'])->name('register');
 Route::post('/users/register', [UsersController::class, 'register'])->name('register');
+Route::get('/maps/index', [MapsController::class, 'index'])->name('index');

@@ -2,15 +2,13 @@
 
 use App\Http\Controllers\UsersController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/', function () {
+    return redirect('/users/login');
+});
 
-Route::get("/", [UsersController::class, "index"]);
+Route::get('/users/login', [UsersController::class, 'login'])->name('login');
+Route::post('/users/login', [UsersController::class, 'login'])->name('login');
+Route::get('/users/logout', [UsersController::class, 'logout'])->name('logout');
+Route::post('/users/logout', [UsersController::class, 'logout'])->name('logout');
+Route::get('/users/register', [UsersController::class, 'register'])->name('register');
+Route::post('/users/register', [UsersController::class, 'register'])->name('register');
